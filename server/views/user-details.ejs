@@ -1,0 +1,64 @@
+<% layout('./layouts/index.ejs') %>
+<ul class="list">
+  <li>
+    <strong>First Name :</strong>
+    <span><%= user.firstName %></span>
+  </li>
+  <li>
+    <strong>Last Name :</strong>
+    <span><%= user.lastName %></span>
+  </li>
+  <li>
+    <strong>Email :</strong>
+    <span><%= user.email %></span>
+  </li>
+  <li>
+    <strong>Id :</strong>
+    <span id="user-id"><%= user._id %></span>
+  </li>
+  <li>
+    <strong>Role :</strong>
+    <span><%= user.role %></span>
+  </li>
+  <li>
+    <strong>Phone :</strong>
+    <span><%= user.phone %></span>
+  </li>
+  <% if (user.location) { %>
+    <li>
+      <strong>Location:</strong>
+      <span><%= user.location %></span>
+    </li>
+  <% } %>
+  <button class="show">Show products</button>
+  <button class="hide">Hide products</button>
+</ul>
+<div class="details">
+</div>
+<script>
+  $('.show').click(function(e){
+    var vm = this;
+    var content = '';
+    var userId = $('#user-id').text();
+    var url = "http://localhost:3000/show-products/" + userId;
+    $.get(url, function(data) {
+        $(vm).hide();
+        $('.hide').show();
+        $('.details').html('');
+        for (var i=0; i < data.length; i++) {
+          var ul = $('.details').append("<ul></ul>");
+          for (key in data[i]) {
+            content += '<li><strong>'+key+':</strong> '+data[i][key]+'</li>';
+          }
+          $(ul).append(content);
+          content = '';
+        }
+      }
+    );
+  });
+  $('.hide').click(function(e){
+    $(this).hide();
+    $('.details').html('');
+    $('.show').show();
+  });
+</script>

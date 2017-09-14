@@ -1,0 +1,24 @@
+<% layout('./layouts/index.ejs') %>
+<h1>Products</h1>
+<hr>
+<% for (var i = 0; i < products.length; i++) { %>
+  <ul>
+      <li><strong>Id :</strong><%= products[i]._id %></li>
+      <li><strong>Name :</strong><%= products[i].name %></li>
+      <li><strong>color :</strong><%= products[i].color %></li>
+      <li><strong>type :</strong><%= products[i].type %></li>
+      <li><strong>year :</strong><%= products[i].year %></li>
+      <li><strong>old :</strong><%= products[i].old %></li>
+      <li><strong>sortOfgrape :</strong><%= products[i].sortOfgrape %></li>
+      <li><strong>placeOfgrape :</strong>
+        country: <%= products[i].placeOfgrape.country %>
+        town: <%= products[i].placeOfgrape.town %>
+      </li>
+      <li><strong>madeInLocation :</strong>
+        country: <%= products[i].madeInLocation.country %>
+        town: <%= products[i].madeInLocation.town %>
+      </li>
+      <li><strong>addedBy :</strong><%= products[i].addedBy %></li>
+  </ul>
+  <hr>
+<% } %>

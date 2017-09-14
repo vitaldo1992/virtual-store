@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>New post</title>
+</head>
+<body>
+  <h1>Write your posts</h1>
+  <form action="/write" method="post">
+    <fieldset style="width: 400px; margin: 20px 0">
+      <label for="title">Title</label><br>
+      <input type="text" id="title" name="title">
+      <hr>
+      <label for="content">Content</label><br>
+      <textarea name="content" rows="8" cols="80" id="content"></textarea>
+    </fieldset>
+    <button>Add Post</button>
+  </form>
+</body>
+</html>

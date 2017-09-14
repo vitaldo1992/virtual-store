@@ -1,0 +1,23 @@
+<% layout('./layouts/index.ejs') %>
+<h1>Registration</h1>
+<hr>
+<form action="/registration" name="register" method="post">
+  <div class="field-wrapper">
+    <div class="field"><label for="first-name">First name</label><input id="first-name" type="text" name="firstName"></div>
+    <div class="field"><label for="last-name">Last name</label><input id="last-name" type="text" name="lastName"></div>
+    <div class="field"><label for="email">Email</label><input id="email" type="email" name="email"></div>
+    <div class="field"><label for="phone">Phone</label><input id="phone" type="text" name="phone"></div>
+    <div class="field"><label for="password">Password</label><input id="password" type="password" name="password"></div>
+    <div class="field"><label for="confirmed">Confirmed password</label><input id="confirmed" type="password" name="confirmed"></div>
+    <div class="field"><button>Register</button></div>
+  </div>
+</form>
+<div class="errors-field">
+  <% if (errors && errors.length) { %>
+    <ul>
+      <% for (var i = 0; i < errors.length; i++) { %>
+        <li><%= errors[i].msg %></li>
+      <% } %>
+    </ul>
+  <% } %>
+</div>

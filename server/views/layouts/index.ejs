@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <title><%= title %></title>
+</head>
+<body>
+  <div class="header">
+    <ul class="nav">
+      <% for (var key in nav.states) { %>
+        <li class="<%= nav.states[key].active ? 'active' : '' %>">
+          <a href="<%= nav.states[key].url %>"><%= nav.states[key].title %></a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+  <%- body -%>
+</body>
+</html>

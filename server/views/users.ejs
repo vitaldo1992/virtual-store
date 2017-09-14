@@ -1,0 +1,41 @@
+<% layout('./layouts/index.ejs') %>
+<h1>Users</h1>
+<hr>
+<% for (var i=0; i < users.length; i++) { %>
+  <div class="post">
+    <ul>
+        <li>
+          <strong>First Name :</strong>
+          <span><%= users[i].firstName %></span>
+        </li>
+        <li>
+          <strong>Last Name :</strong>
+          <span><%= users[i].lastName %></span>
+        </li>
+        <li>
+          <strong>Email :</strong>
+          <span><%= users[i].email %></span>
+        </li>
+        <li>
+          <strong>Id :</strong>
+          <span><%= users[i]._id %></span>
+        </li>
+        <li>
+          <strong>Role :</strong>
+          <span><%= users[i].role %></span>
+        </li>
+        <li>
+          <strong>Phone :</strong>
+          <span><%= users[i].phone %></span>
+        </li>
+        <% if (users[i].location) { %>
+          <li>
+            <strong>Location:</strong>
+            <span><%= users[i].location %></span>
+          </li>
+        <% } %>
+        <li><a href="/user-details/<%= users[i]['_id'] %>">Check user</a></li>
+    </ul>
+  </div>
+<hr>
+<% } %>
